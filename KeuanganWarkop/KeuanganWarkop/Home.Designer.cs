@@ -35,23 +35,21 @@
             btnHome = new Button();
             label1 = new Label();
             panel2 = new Panel();
-            labelPemasukan = new Label();
+            lblPemasukan = new Label();
             label2 = new Label();
             panel3 = new Panel();
-            labelPengeluaran = new Label();
+            lblPengeluaran = new Label();
             label3 = new Label();
             panel4 = new Panel();
-            labelSisa = new Label();
+            lblSaldo = new Label();
             label4 = new Label();
             label5 = new Label();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
+            dgvRiwayat = new DataGridView();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
-            tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRiwayat).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -120,22 +118,22 @@
             // panel2
             // 
             panel2.BackColor = Color.Moccasin;
-            panel2.Controls.Add(labelPemasukan);
+            panel2.Controls.Add(lblPemasukan);
             panel2.Controls.Add(label2);
             panel2.Location = new Point(182, 54);
             panel2.Name = "panel2";
             panel2.Size = new Size(181, 108);
             panel2.TabIndex = 2;
             // 
-            // labelPemasukan
+            // lblPemasukan
             // 
-            labelPemasukan.AutoSize = true;
-            labelPemasukan.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelPemasukan.Location = new Point(12, 72);
-            labelPemasukan.Name = "labelPemasukan";
-            labelPemasukan.Size = new Size(48, 25);
-            labelPemasukan.TabIndex = 1;
-            labelPemasukan.Text = "Rp.0";
+            lblPemasukan.AutoSize = true;
+            lblPemasukan.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPemasukan.Location = new Point(12, 72);
+            lblPemasukan.Name = "lblPemasukan";
+            lblPemasukan.Size = new Size(48, 25);
+            lblPemasukan.TabIndex = 1;
+            lblPemasukan.Text = "Rp.0";
             // 
             // label2
             // 
@@ -150,22 +148,22 @@
             // panel3
             // 
             panel3.BackColor = Color.Moccasin;
-            panel3.Controls.Add(labelPengeluaran);
+            panel3.Controls.Add(lblPengeluaran);
             panel3.Controls.Add(label3);
             panel3.Location = new Point(390, 54);
             panel3.Name = "panel3";
             panel3.Size = new Size(181, 108);
             panel3.TabIndex = 3;
             // 
-            // labelPengeluaran
+            // lblPengeluaran
             // 
-            labelPengeluaran.AutoSize = true;
-            labelPengeluaran.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelPengeluaran.Location = new Point(16, 72);
-            labelPengeluaran.Name = "labelPengeluaran";
-            labelPengeluaran.Size = new Size(48, 25);
-            labelPengeluaran.TabIndex = 1;
-            labelPengeluaran.Text = "Rp.0";
+            lblPengeluaran.AutoSize = true;
+            lblPengeluaran.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPengeluaran.Location = new Point(16, 72);
+            lblPengeluaran.Name = "lblPengeluaran";
+            lblPengeluaran.Size = new Size(48, 25);
+            lblPengeluaran.TabIndex = 1;
+            lblPengeluaran.Text = "Rp.0";
             // 
             // label3
             // 
@@ -180,22 +178,22 @@
             // panel4
             // 
             panel4.BackColor = Color.Moccasin;
-            panel4.Controls.Add(labelSisa);
+            panel4.Controls.Add(lblSaldo);
             panel4.Controls.Add(label4);
             panel4.Location = new Point(597, 54);
             panel4.Name = "panel4";
             panel4.Size = new Size(181, 108);
             panel4.TabIndex = 3;
             // 
-            // labelSisa
+            // lblSaldo
             // 
-            labelSisa.AutoSize = true;
-            labelSisa.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelSisa.Location = new Point(19, 72);
-            labelSisa.Name = "labelSisa";
-            labelSisa.Size = new Size(48, 25);
-            labelSisa.TabIndex = 1;
-            labelSisa.Text = "Rp.0";
+            lblSaldo.AutoSize = true;
+            lblSaldo.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSaldo.Location = new Point(19, 72);
+            lblSaldo.Name = "lblSaldo";
+            lblSaldo.Size = new Size(48, 25);
+            lblSaldo.TabIndex = 1;
+            lblSaldo.Text = "Rp.0";
             // 
             // label4
             // 
@@ -219,42 +217,21 @@
             label5.TabIndex = 1;
             label5.Text = "Riwayat Transaksi";
             // 
-            // tabControl1
+            // dgvRiwayat
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new Point(182, 233);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(596, 205);
-            tabControl1.TabIndex = 4;
-            // 
-            // tabPage1
-            // 
-            tabPage1.Location = new Point(4, 29);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(588, 172);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Location = new Point(4, 29);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(588, 172);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            dgvRiwayat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRiwayat.Location = new Point(182, 246);
+            dgvRiwayat.Name = "dgvRiwayat";
+            dgvRiwayat.RowHeadersWidth = 51;
+            dgvRiwayat.Size = new Size(596, 188);
+            dgvRiwayat.TabIndex = 4;
             // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(tabControl1);
+            Controls.Add(dgvRiwayat);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -272,7 +249,7 @@
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvRiwayat).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -287,16 +264,14 @@
         private Label label3;
         private Panel panel4;
         private Label label4;
-        private Label labelPemasukan;
-        private Label labelPengeluaran;
-        private Label labelSisa;
+        private Label lblPemasukan;
+        private Label lblPengeluaran;
+        private Label lblSaldo;
         private Label label5;
         private Button btnExit;
         private Button btnLaporan;
         private Button btnTransaksi;
         private Button btnHome;
-        private TabControl tabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
+        private DataGridView dgvRiwayat;
     }
 }

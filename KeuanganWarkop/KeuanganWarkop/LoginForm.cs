@@ -63,5 +63,11 @@ namespace KeuanganWarkop
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.Show();
+            this.Hide(); // Menyembunyikan form login dan membuka form register
+        }
     }
 }

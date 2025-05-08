@@ -36,3 +36,6 @@ C:\Users\Labib\source\repos\KeuanganWarkop\KeuanganWarkop\obj\Debug\net8.0-windo
 C:\Users\Labib\source\repos\KeuanganWarkop\KeuanganWarkop\obj\Debug\net8.0-windows\KeuanganWarkop.home.resources
 C:\Users\Labib\source\repos\KeuanganWarkop\KeuanganWarkop\obj\Debug\net8.0-windows\KeuanganWarkop.Laporan.resources
 C:\Users\Labib\source\repos\KeuanganWarkop\KeuanganWarkop\obj\Debug\net8.0-windows\KeuanganWarkop.Transaksi.resources
+C:\Users\Labib\source\repos\keuanganwarkop\KeuanganWarkop\obj\Debug\net8.0-windows\KeuanganWarkop.Properties.Resources.resources
+C:\Users\Labib\source\repos\keuanganwarkop\KeuanganWarkop\obj\Debug\net8.0-windows\KeuanganWarkop.EditTransaksiForm.resources
+C:\Users\Labib\source\repos\keuanganwarkop\KeuanganWarkop\obj\Debug\net8.0-windows\KeuanganWarkop.RegisterForm.resources

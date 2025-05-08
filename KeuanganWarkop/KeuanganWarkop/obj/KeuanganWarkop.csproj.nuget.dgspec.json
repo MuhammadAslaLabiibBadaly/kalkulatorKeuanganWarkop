@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Labib\\source\\repos\\KeuanganWarkop\\KeuanganWarkop\\KeuanganWarkop.csproj": {}
+    "C:\\Users\\Labib\\source\\repos\\keuanganwarkop\\KeuanganWarkop\\KeuanganWarkop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Labib\\source\\repos\\KeuanganWarkop\\KeuanganWarkop\\KeuanganWarkop.csproj": {
+    "C:\\Users\\Labib\\source\\repos\\keuanganwarkop\\KeuanganWarkop\\KeuanganWarkop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Labib\\source\\repos\\KeuanganWarkop\\KeuanganWarkop\\KeuanganWarkop.csproj",
+        "projectUniqueName": "C:\\Users\\Labib\\source\\repos\\keuanganwarkop\\KeuanganWarkop\\KeuanganWarkop.csproj",
         "projectName": "KeuanganWarkop",
-        "projectPath": "C:\\Users\\Labib\\source\\repos\\KeuanganWarkop\\KeuanganWarkop\\KeuanganWarkop.csproj",
+        "projectPath": "C:\\Users\\Labib\\source\\repos\\keuanganwarkop\\KeuanganWarkop\\KeuanganWarkop.csproj",
         "packagesPath": "C:\\Users\\Labib\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Labib\\source\\repos\\KeuanganWarkop\\KeuanganWarkop\\obj\\",
+        "outputPath": "C:\\Users\\Labib\\source\\repos\\keuanganwarkop\\KeuanganWarkop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
