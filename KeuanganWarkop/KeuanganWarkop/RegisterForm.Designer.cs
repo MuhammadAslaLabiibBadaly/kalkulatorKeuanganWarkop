@@ -83,22 +83,24 @@
             // 
             // btnRegister
             // 
+            btnRegister.BackColor = Color.Lime;
             btnRegister.Location = new Point(347, 268);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(78, 29);
             btnRegister.TabIndex = 5;
             btnRegister.Text = "Register";
-            btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.UseVisualStyleBackColor = false;
             btnRegister.Click += btnRegister_Click;
             // 
             // btnBatal
             // 
+            btnBatal.BackColor = Color.Red;
             btnBatal.Location = new Point(452, 268);
             btnBatal.Name = "btnBatal";
             btnBatal.Size = new Size(78, 29);
             btnBatal.TabIndex = 5;
             btnBatal.Text = "Batal";
-            btnBatal.UseVisualStyleBackColor = true;
+            btnBatal.UseVisualStyleBackColor = false;
             btnBatal.Click += btnBatal_Click;
             // 
             // label3
@@ -123,6 +125,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Turquoise;
             ClientSize = new Size(800, 450);
             Controls.Add(btnBatal);
             Controls.Add(btnRegister);

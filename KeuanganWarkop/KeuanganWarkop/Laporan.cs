@@ -1,24 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing.Printing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+
 
 namespace KeuanganWarkop
 {
     public partial class Laporan : Form
     {
-        private string connectionString = "server=127.0.0.1; user=root; database=keuanganwarkop; password=";
         public Laporan()
         {
             InitializeComponent();
             this.dgvLaporan.CellContentClick += new DataGridViewCellEventHandler(this.dgvLaporan_CellContentClick);
-
         }
 
         // Fungsi untuk menampilkan laporan transaksi berdasarkan filter bulan dan tahun
@@ -26,12 +20,10 @@ namespace KeuanganWarkop
         {
             try
             {
-                // Ambil tahun dari ComboBox
                 int tahun = Convert.ToInt32(cboTahun.SelectedItem);
-                // Ambil bulan dan tahun dari DateTimePicker
                 int bulan = dtBulan.Value.Month;
 
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                using (MySqlConnection conn = Koneksi.GetConnection())
                 {
                     conn.Open();
                     string query = "SELECT id_transaksi, tanggal, kategori, nominal, deskripsi FROM transaksi WHERE YEAR(tanggal) = @tahun AND MONTH(tanggal) = @bulan ORDER BY tanggal DESC";
@@ -44,9 +36,8 @@ namespace KeuanganWarkop
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
 
-                        dgvLaporan.DataSource = dt;  // Menampilkan data transaksi ke DataGridView
+                        dgvLaporan.DataSource = dt;
 
-                        // Menambahkan kolom aksi
                         if (!dgvLaporan.Columns.Contains("aksi"))
                         {
                             DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
@@ -57,10 +48,8 @@ namespace KeuanganWarkop
                             dgvLaporan.Columns.Add(btnEdit);
                         }
 
-                        // Menyembunyikan kolom id_transaksi agar tidak ditampilkan
                         dgvLaporan.Columns["id_transaksi"].Visible = false;
-
-                        HitungSaldo(dt);  // Menghitung saldo setelah data ditampilkan
+                        HitungSaldo(dt);
                     }
                 }
             }
@@ -72,27 +61,22 @@ namespace KeuanganWarkop
 
         private void dgvLaporan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Mengecek apakah tombol "Aksi" diklik (kolom tombol berada di posisi "aksi")
             if (e.ColumnIndex == dgvLaporan.Columns["aksi"].Index && e.RowIndex >= 0)
             {
-                // Mengambil data transaksi berdasarkan baris yang diklik
                 DataGridViewRow row = dgvLaporan.Rows[e.RowIndex];
-                string idTransaksi = row.Cells["id_transaksi"].Value.ToString(); // ID Transaksi hanya digunakan di sini
+                string idTransaksi = row.Cells["id_transaksi"].Value.ToString();
                 string kategori = row.Cells["kategori"].Value.ToString();
                 string nominal = row.Cells["nominal"].Value.ToString();
                 string deskripsi = row.Cells["deskripsi"].Value.ToString();
 
-                // Menampilkan dialog konfirmasi untuk memilih aksi
                 DialogResult result = MessageBox.Show("Pilih aksi: Edit(Yes) atau Hapus(No) ?", "Pilih Aksi", MessageBoxButtons.YesNoCancel);
 
                 if (result == DialogResult.Yes)
                 {
-                    // Tindakan Edit
                     EditTransaksi(idTransaksi, kategori, nominal, deskripsi);
                 }
                 else if (result == DialogResult.No)
                 {
-                    // Tindakan Hapus
                     HapusTransaksi(idTransaksi);
                 }
             }
@@ -101,13 +85,10 @@ namespace KeuanganWarkop
         private void EditTransaksi(string idTransaksi, string kategori, string nominal, string deskripsi)
         {
             EditTransaksiForm editForm = new EditTransaksiForm(idTransaksi, kategori, nominal, deskripsi);
-
-            // Tambahkan event handler untuk reload data saat update selesai
             editForm.OnTransaksiUpdated += () =>
             {
-                TampilkanLaporan(); // Refresh DataGridView setelah edit
+                TampilkanLaporan();
             };
-
             editForm.Show();
         }
 
@@ -119,7 +100,7 @@ namespace KeuanganWarkop
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    using (MySqlConnection conn = new MySqlConnection(connectionString))
+                    using (MySqlConnection conn = Koneksi.GetConnection())
                     {
                         conn.Open();
                         string query = "DELETE FROM transaksi WHERE id_transaksi = @idTransaksi";
@@ -131,7 +112,7 @@ namespace KeuanganWarkop
                     }
 
                     MessageBox.Show("Transaksi berhasil dihapus.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    TampilkanLaporan();  // Memuat ulang laporan setelah penghapusan
+                    TampilkanLaporan();
                 }
             }
             catch (Exception ex)
@@ -140,9 +121,6 @@ namespace KeuanganWarkop
             }
         }
 
-
-
-        // Fungsi untuk menghitung saldo akhir berdasarkan transaksi
         private void HitungSaldo(DataTable dt)
         {
             decimal pemasukan = 0;
@@ -165,28 +143,23 @@ namespace KeuanganWarkop
 
         private void btnTampilkan_Click(object sender, EventArgs e)
         {
-            TampilkanLaporan(); // Menampilkan laporan berdasarkan bulan dan tahun yang dipilih
+            TampilkanLaporan();
         }
 
-        // Form load event untuk mengisi comboBox Tahun dengan data yang ada
         private void Laporan_Load(object sender, EventArgs e)
         {
-            // Mengisi comboBox Tahun dengan pilihan tahun tertentu
             for (int i = 2023; i <= DateTime.Now.Year; i++)
             {
                 cboTahun.Items.Add(i);
             }
             cboTahun.SelectedItem = DateTime.Now.Year;
 
-            // Set default bulan ke bulan sekarang
-            dtBulan.CustomFormat = "MM";  // Set format hanya bulan
+            dtBulan.CustomFormat = "MM";
             dtBulan.Format = DateTimePickerFormat.Custom;
-            dtBulan.Value = DateTime.Now;  // Set nilai default bulan sekarang
+            dtBulan.Value = DateTime.Now;
 
-            // Tampilkan laporan saat form dimuat pertama kali
             TampilkanLaporan();
         }
-
 
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -202,16 +175,27 @@ namespace KeuanganWarkop
             this.Close();
         }
 
-        private void btnLaporan_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void btnLaporan_Click(object sender, EventArgs e) { }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        
+        private void btnCetak_Click(object sender, EventArgs e)
+        {
+            PrintPreviewDialog previewDialog = new PrintPreviewDialog();
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += new PrintPageEventHandler(PrintPageHandler);
+            previewDialog.Document = printDocument;
+            previewDialog.ShowDialog();
+        }
+
+        private void PrintPageHandler(object sender, PrintPageEventArgs e)
+        {
+            Bitmap bm = new Bitmap(this.dgvLaporan.Width, this.dgvLaporan.Height);
+            dgvLaporan.DrawToBitmap(bm, new Rectangle(0, 0, this.dgvLaporan.Width, this.dgvLaporan.Height));
+            e.Graphics.DrawImage(bm, 20, 20);
+        }
     }
 }

@@ -57,12 +57,13 @@
             // 
             // btnLogin
             // 
+            btnLogin.BackColor = Color.Lime;
             btnLogin.Location = new Point(297, 258);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(90, 42);
             btnLogin.TabIndex = 1;
             btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
             // label1
@@ -85,12 +86,13 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.Red;
             button1.Location = new Point(414, 258);
             button1.Name = "button1";
             button1.Size = new Size(94, 42);
             button1.TabIndex = 3;
             button1.Text = "Registrasi";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // label3
@@ -117,6 +119,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Turquoise;
             ClientSize = new Size(800, 450);
             Controls.Add(label4);
             Controls.Add(label3);

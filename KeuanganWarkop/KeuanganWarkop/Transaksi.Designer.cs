@@ -193,22 +193,24 @@
             // 
             // btnSubmit
             // 
+            btnSubmit.BackColor = Color.Lime;
             btnSubmit.Location = new Point(300, 388);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(110, 38);
             btnSubmit.TabIndex = 9;
             btnSubmit.Text = "Submit";
-            btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.UseVisualStyleBackColor = false;
             btnSubmit.Click += btnSubmit_Click;
             // 
             // btnClear
             // 
+            btnClear.BackColor = Color.Red;
             btnClear.Location = new Point(450, 388);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(110, 38);
             btnClear.TabIndex = 9;
             btnClear.Text = "Clear";
-            btnClear.UseVisualStyleBackColor = true;
+            btnClear.UseVisualStyleBackColor = false;
             // 
             // btn1
             // 

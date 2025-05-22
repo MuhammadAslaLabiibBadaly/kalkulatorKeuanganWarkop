@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -13,7 +6,6 @@ namespace KeuanganWarkop
 {
     public partial class EditTransaksiForm : Form
     {
-        private string connectionString = "server=127.0.0.1; user=root; database=keuanganwarkop; password=";
         private string idTransaksi;
 
         // Event callback untuk memberi tahu form Laporan
@@ -44,7 +36,7 @@ namespace KeuanganWarkop
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                using (MySqlConnection conn = Koneksi.GetConnection())
                 {
                     conn.Open();
                     string query = "UPDATE transaksi SET kategori = @kategori, nominal = @nominal, deskripsi = @deskripsi WHERE id_transaksi = @id";

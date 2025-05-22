@@ -41,7 +41,7 @@
             // 
             // txtNominal
             // 
-            txtNominal.Location = new Point(336, 200);
+            txtNominal.Location = new Point(336, 171);
             txtNominal.Name = "txtNominal";
             txtNominal.Size = new Size(195, 27);
             txtNominal.TabIndex = 0;
@@ -49,22 +49,23 @@
             // txtKategori
             // 
             txtKategori.FormattingEnabled = true;
-            txtKategori.Location = new Point(336, 154);
+            txtKategori.Location = new Point(336, 125);
             txtKategori.Name = "txtKategori";
             txtKategori.Size = new Size(195, 28);
             txtKategori.TabIndex = 1;
             // 
             // txtDeskripsi
             // 
-            txtDeskripsi.Location = new Point(336, 244);
+            txtDeskripsi.Location = new Point(336, 215);
+            txtDeskripsi.Multiline = true;
             txtDeskripsi.Name = "txtDeskripsi";
-            txtDeskripsi.Size = new Size(195, 27);
+            txtDeskripsi.Size = new Size(195, 93);
             txtDeskripsi.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(257, 161);
+            label1.Location = new Point(257, 132);
             label1.Name = "label1";
             label1.Size = new Size(66, 20);
             label1.TabIndex = 3;
@@ -73,7 +74,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(257, 203);
+            label2.Location = new Point(257, 174);
             label2.Name = "label2";
             label2.Size = new Size(66, 20);
             label2.TabIndex = 3;
@@ -82,7 +83,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(257, 247);
+            label3.Location = new Point(257, 218);
             label3.Name = "label3";
             label3.Size = new Size(69, 20);
             label3.TabIndex = 3;
@@ -90,29 +91,31 @@
             // 
             // btnSimpan
             // 
-            btnSimpan.Location = new Point(279, 310);
+            btnSimpan.BackColor = Color.Lime;
+            btnSimpan.Location = new Point(288, 341);
             btnSimpan.Name = "btnSimpan";
             btnSimpan.Size = new Size(94, 29);
             btnSimpan.TabIndex = 4;
             btnSimpan.Text = "Simpan";
-            btnSimpan.UseVisualStyleBackColor = true;
+            btnSimpan.UseVisualStyleBackColor = false;
             btnSimpan.Click += btnSimpan_Click;
             // 
             // btnBatal
             // 
-            btnBatal.Location = new Point(426, 310);
+            btnBatal.BackColor = Color.Red;
+            btnBatal.Location = new Point(420, 341);
             btnBatal.Name = "btnBatal";
             btnBatal.Size = new Size(94, 29);
             btnBatal.TabIndex = 5;
             btnBatal.Text = "Batal";
-            btnBatal.UseVisualStyleBackColor = true;
+            btnBatal.UseVisualStyleBackColor = false;
             btnBatal.Click += btnBatal_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(257, 81);
+            label4.Location = new Point(300, 64);
             label4.Name = "label4";
             label4.Size = new Size(174, 31);
             label4.TabIndex = 6;
@@ -122,6 +125,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Turquoise;
             ClientSize = new Size(800, 450);
             Controls.Add(label4);
             Controls.Add(btnBatal);

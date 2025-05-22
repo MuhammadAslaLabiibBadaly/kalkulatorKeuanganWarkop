@@ -40,6 +40,7 @@
             cboTahun = new ComboBox();
             lblSaldo = new Label();
             btnTampilkan = new Button();
+            btnCetak = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLaporan).BeginInit();
             SuspendLayout();
@@ -152,19 +153,32 @@
             // 
             // btnTampilkan
             // 
-            btnTampilkan.Location = new Point(562, 59);
+            btnTampilkan.BackColor = Color.Lime;
+            btnTampilkan.Location = new Point(546, 59);
             btnTampilkan.Name = "btnTampilkan";
             btnTampilkan.Size = new Size(122, 28);
             btnTampilkan.TabIndex = 9;
             btnTampilkan.Text = "Tampilkan";
-            btnTampilkan.UseVisualStyleBackColor = true;
+            btnTampilkan.UseVisualStyleBackColor = false;
             btnTampilkan.Click += btnTampilkan_Click;
+            // 
+            // btnCetak
+            // 
+            btnCetak.BackColor = Color.Gold;
+            btnCetak.Location = new Point(674, 58);
+            btnCetak.Name = "btnCetak";
+            btnCetak.Size = new Size(94, 29);
+            btnCetak.TabIndex = 10;
+            btnCetak.Text = "Cetak";
+            btnCetak.UseVisualStyleBackColor = false;
+            btnCetak.Click += btnCetak_Click;
             // 
             // Laporan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnCetak);
             Controls.Add(btnTampilkan);
             Controls.Add(lblSaldo);
             Controls.Add(cboTahun);
@@ -197,5 +211,6 @@
         private ComboBox cboTahun;
         private Label lblSaldo;
         private Button btnTampilkan;
+        private Button btnCetak;
     }
 }

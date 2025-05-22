@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -13,8 +6,6 @@ namespace KeuanganWarkop
 {
     public partial class RegisterForm : Form
     {
-        private string connectionString = "server=127.0.0.1; user=root; database=keuanganwarkop; password=";
-
         public RegisterForm()
         {
             InitializeComponent();
@@ -40,14 +31,14 @@ namespace KeuanganWarkop
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                using (MySqlConnection conn = Koneksi.GetConnection())
                 {
                     conn.Open();
                     string query = "INSERT INTO login (username, password) VALUES (@username, @password)";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@username", username);
-                        cmd.Parameters.AddWithValue("@password", password);  // Password harus dienkripsi sebelum disimpan
+                        cmd.Parameters.AddWithValue("@password", password);  // Sebaiknya enkripsi sebelum simpan
 
                         int result = cmd.ExecuteNonQuery();
                         if (result > 0)

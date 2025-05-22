@@ -6,8 +6,6 @@ namespace KeuanganWarkop
 {
     public partial class LoginForm : Form
     {
-        private string connectionString = "server=127.0.0.1; user=root; database=keuanganwarkop; password=";
-
         public LoginForm()
         {
             InitializeComponent();
@@ -31,7 +29,7 @@ namespace KeuanganWarkop
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                using (MySqlConnection conn = Koneksi.GetConnection())
                 {
                     conn.Open();
                     string query = "SELECT COUNT(*) FROM login WHERE username = @username AND password = @password";
